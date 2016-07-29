@@ -3,20 +3,24 @@
 #          the specific developer scripts/profiles/configurations can be left
 #          alone to use the default values.
 
-[operating_system]
 # Operating system desired for the development VM
 # Currently, the following Operating Systems are supported:
 #   ubuntu
-name = ubuntu
+os_name: 'ubuntu'
 
 # Operating system version desired for the development VM
 # Currently, the following versions are supported:
 #   Ubuntu: 16.04
-version = 16.04
+os_version: '16.04'
 
-[hardware]
 # Amount of memory desired
-memory = 1024
+vm_memory: '1024'
 
 # Number of CPUs desired
-num_cpus = 1
+vm_num_cpus: '1'
+
+# Specify where files are taken from GitHub and placed on
+# the built virtual machine. Note that these are essentially the
+# equivalent of doing a "git clone" into the respective directories
+# specified in the configurations below.
+homedir_files: 'https://github.com/<USER>/homedir.git'
