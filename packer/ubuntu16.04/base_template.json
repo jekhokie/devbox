@@ -1,7 +1,8 @@
 {
     "variables": {
         "memory": "",
-        "num_cpus": ""
+        "num_cpus": "",
+        "homedir_files": ""
     },
     "builders": [{
         "boot_command": [
@@ -38,10 +39,14 @@
         ]
     }],
     "provisioners": [{
+        "environment_vars": [
+            "homedir_files={{user `homedir_files`}}"
+        ],
         "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
         "scripts": [
             "scripts/vagrant_sudo.sh",
-            "scripts/vbox_guest_additions.sh"
+            "scripts/vbox_guest_additions.sh",
+            "scripts/home_dir.sh"
         ],
         "type": "shell"
     }],

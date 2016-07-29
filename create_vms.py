@@ -10,22 +10,23 @@
 #       degraded as a result.
 
 from ConfigParser import SafeConfigParser
+from config import Config
 from subprocess import call, check_call
 import shlex
 
 # import the desired configurations
-config = SafeConfigParser()
-config.read('config/settings.ini')
+config = Config(file('config/settings.ini'))
 
 # construct variables based on the configuration
-os_name = config.get('operating_system', 'name')
-os_version = config.get('operating_system', 'version')
-memory = config.get('hardware', 'memory')
-num_cpus = config.get('hardware', 'num_cpus')
+os_name = config.os_name
+os_version = config.os_version
+memory = config.vm_memory
+num_cpus = config.vm_num_cpus
+homedir_files = config.homedir_files
 packer_dir = "packer/{}{}".format(os_name, os_version)
 
 # run the Packer command to build the VM based on the inputs
-packer_command = shlex.split("packer build -var 'memory={}' -var 'num_cpus={}' base_template.json".format(memory, num_cpus))
+packer_command = shlex.split("packer build -var 'homedir_files={}' -var 'memory={}' -var 'num_cpus={}' base_template.json".format(homedir_files, memory, num_cpus))
 call(packer_command, cwd=packer_dir)
 
 # next steps if the build succeeded
