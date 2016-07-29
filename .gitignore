@@ -7,3 +7,9 @@
 
 # ignore Python temp files
 *.pyc
+
+# ignore the user-specific settings
+config/settings.ini
+
+# ignore the Packer cache directories
+packer/*/packer_cache
