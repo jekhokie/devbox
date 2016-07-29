@@ -13,3 +13,4 @@ config/settings.ini
 
 # ignore the Packer cache directories
 packer/*/packer_cache
+packer/*/build
