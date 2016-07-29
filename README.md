@@ -2,6 +2,12 @@
 
 Auto-provisioning and configuration of personalized virtual machines to support development.
 
+## CAUTION
+
+This project is slightly theoretical in nature. Although I do actually use it for provisioning
+myself new developer VMs, it is very limited in nature and was formed as more of a way to
+demonstrate capabilities of the Packer tool and supporting infrastructure.
+
 ## Background
 
 As a developer, I am constantly developing and testing on various platforms, operating
