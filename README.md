@@ -92,8 +92,8 @@ $ pip install -r requirements.txt
 Customize the configuration for your environment:
 
 ```bash
-$ cp config/settings.json.sample config/settings.json
-# edit the configuration in config/settings.json for your environment
+$ cp config/settings.ini.sample config/settings.ini
+# edit the configuration in config/settings.ini for your environment
 ```
 
 ### Build Customized VM
