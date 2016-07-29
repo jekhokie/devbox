@@ -11,26 +11,26 @@ VM, however, I am inclined to scp/copy/install/etc. all of the dependencies rela
 my preferred development environment, including but not limited to:
 
 * vim
-** Highlighting
-** Syntax Completion
-** Editor controls/status bar
-** Git integration
-** Folder/file explorer
+  * Highlighting
+  * Syntax Completion
+  * Editor controls/status bar
+  * Git integration
+  * Folder/file explorer
 * git
-** Shortcuts
-** Default configuration settings
+  * Shortcuts
+  * Default configuration settings
 * Custom Bash Scripts
-** Auto-completion scripts
+  * Auto-completion scripts
 * bashrc, bash_profile
-** Environment variables
-** Aliases
-** Default settings
+  * Environment variables
+  * Aliases
+  * Default settings
 * tmux
-** Shortcut settings
-** Default configurations
+  * Shortcut settings
+  * Default configurations
 * screen
-** Shortcut settings
-** Default configurations
+  * Shortcut settings
+  * Default configurations
 * RVM
 * etc.
 
