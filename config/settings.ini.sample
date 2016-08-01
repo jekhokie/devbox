@@ -24,3 +24,7 @@ vm_num_cpus: '1'
 # equivalent of doing a "git clone" into the respective directories
 # specified in the configurations below.
 homedir_files: 'https://github.com/<USER>/homedir.git'
+
+# Additional packages desired to be installed as part of the customization.
+# Packages must be space-delimited.
+apt_packages: 'vim git nmap tmux'

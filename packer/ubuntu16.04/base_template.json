@@ -1,8 +1,9 @@
 {
     "variables": {
+        "apt_packages": "",
+        "homedir_files": "",
         "memory": "",
-        "num_cpus": "",
-        "homedir_files": ""
+        "num_cpus": ""
     },
     "builders": [{
         "boot_command": [
@@ -38,18 +39,29 @@
             ["modifyvm", "{{.Name}}", "--cpus", "{{user `num_cpus`}}"]
         ]
     }],
-    "provisioners": [{
-        "environment_vars": [
-            "homedir_files={{user `homedir_files`}}"
-        ],
-        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-        "scripts": [
-            "scripts/vagrant_sudo.sh",
-            "scripts/vbox_guest_additions.sh",
-            "scripts/home_dir.sh"
-        ],
-        "type": "shell"
-    }],
+    "provisioners": [
+        {
+            "environment_vars": [
+                "apt_packages={{user `apt_packages`}}"
+            ],
+            "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+            "scripts": [
+                "scripts/vagrant_sudo.sh",
+                "scripts/vbox_guest_additions.sh",
+                "scripts/apt_packages.sh"
+            ],
+            "type": "shell"
+        },
+        {
+            "environment_vars": [
+                "homedir_files={{user `homedir_files`}}"
+            ],
+            "scripts": [
+                "scripts/home_dir.sh"
+            ],
+            "type": "shell"
+        }
+    ],
     "post-processors": [{
         "keep_input_artifact": false,
         "output": "../../artifacts/{{.BuildName}}_{{.Provider}}_{{timestamp}}.box",
