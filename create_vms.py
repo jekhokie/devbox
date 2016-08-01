@@ -74,6 +74,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "devbox" do |config|
     config.ssh.username = "vagrant"
     config.ssh.password = "vagrant"
+    config.vm.hostname  = "devbox.localhost"
     config.vm.network "private_network", ip: "10.11.13.14", netmask: "255.255.255.0"
   end
 end
