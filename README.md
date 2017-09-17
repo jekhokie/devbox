@@ -4,11 +4,15 @@ Auto-provisioning and configuration of personalized virtual machines to support 
 
 ## CAUTION
 
+**MAKE SURE THAT YOU TURN OFF ALL ANTIVIRUS SCANNING SOFTWARE, SUCH AS KASPERSKY, PRIOR TO RUNNING
+THE `create_vm.py` SCRIPT - FAILURE TO DO SO WILL LIKELY RESULT IN AN INVALID BOOT COMMAND BEING
+TYPED (YOU WILL LIKELY SEE DUPLICATE CHARACTERS BEING SENT TO THE SCREEN DUE TO KEY-UP DELAYS).**
+
+## Background
+
 This project is slightly theoretical in nature. Although I do actually use it for provisioning
 myself new developer VMs, it is very limited in nature and was formed as more of a way to
 demonstrate capabilities of the Packer tool and supporting infrastructure.
-
-## Background
 
 As a developer, I am constantly developing and testing on various platforms, operating
 systems, etc. The primary use case I have is to instantiate a brand new VM using Vagrant
@@ -73,13 +77,10 @@ Mac OS X - El Capitan
 Make sure the following software and tools are installed and/or available (other versions may
 function as expected, but have not been tested, so your mileage may vary):
 
-* Python 2.7.x
-* Packer 0.10.x
-* VirtualBox 4.3.x
-* Vagrant 1.8.5+
-** Note: Pay attention to the Vagrant version. At the time of this writing, older versions of
-Vagrant could cause issues with the latest version of Ubuntu at the time (16.04) not being
-able to configure the network adapter due to a mis-match of the expected network interface name.
+* Python 2.7.x+
+* Packer 1.1.0+
+* VirtualBox 5.1.28+
+* Vagrant 2.0.0+
 
 ### Code
 
@@ -104,6 +105,10 @@ $ cp config/settings.ini.sample config/settings.ini
 
 ### Build Customized VM
 
+**WARNING**: PLEASE REFER TO THE WARNING AT THE BEGINNING OF THIS ARTICLE AND ENSURE ANY/ALL VIRUS
+SCANNING SOFTWARE IS DISABLED PRIOR TO RUNNING THE FOLLOWING COMMANDS. FAILURE TO DO SO WILL LIKELY
+RESULT IN DUPLICATE CHARACTERS BEING SENT TO THE VM FROM PACKER DURING THE BOOT SEQUENCE.
+
 Once your configuration is in place, run the script to stand up your new developer VM:
 
 ```bash
@@ -112,6 +117,10 @@ $ python create_vms.py
 
 Note that the above will take some time to complete - in addition, you will likely see a graphical
 interface corresponding to the new VirtualBox image being created, which is expected.
+
+Once everything completes, you should have a fully-provisioned Vagrant developer environment ready
+for use. You should receive some text at the end of the provisioning instructing next steps, which
+will indicate how to initiate a VM using the Packer image created.
 
 ## Contributing
 
